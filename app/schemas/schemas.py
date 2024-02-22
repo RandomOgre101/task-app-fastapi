@@ -42,6 +42,7 @@ class TaskDeleteOut(BaseModel):
 
 class UserCreate(BaseModel):
     email: EmailStr
+    username: str
     password: str
 
 class UserUpdate(UserCreate):
@@ -50,6 +51,7 @@ class UserUpdate(UserCreate):
 class UserOut(BaseModel):
     id: int
     email: str
+    username: str
     created_at: datetime
 
     class Config:

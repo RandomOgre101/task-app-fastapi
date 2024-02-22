@@ -11,6 +11,7 @@ class User(Base):
 
     id = Column(Integer, primary_key=True, nullable=False)
     email = Column(String, unique=True, nullable=False)
+    username = Column(String, nullable=False)
     password = Column(String, nullable=False)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text('now()'))
 
@@ -22,7 +23,7 @@ class Task(Base):
     id = Column(Integer, primary_key=True, nullable=False)
     content = Column(String, nullable=False)
     deadline = Column(DateTime(timezone=True))
-    priority = Column(String, nullable=False, server_default=text('low'))
+    priority = Column(String, nullable=False)
     completed = Column(Boolean, nullable=False, server_default='FALSE')
     owner_id = Column(Integer, ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
     created_at = Column(TIMESTAMP(timezone=True), nullable=False, server_default=text('now()'))
